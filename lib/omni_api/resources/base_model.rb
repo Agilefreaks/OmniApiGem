@@ -1,3 +1,5 @@
+require 'active_resource/base'
+
 module OmniApi
   module Resources
     class BaseModel < ActiveResource::Base

@@ -1,3 +1,5 @@
+require_relative 'base_client_model'
+
 module OmniApi
   module Resources
     class Client < BaseClientModel

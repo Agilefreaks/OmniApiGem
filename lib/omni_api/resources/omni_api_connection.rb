@@ -1,3 +1,5 @@
+require 'active_resource/connection'
+
 module OmniApi
   module Resources
     class OmniApiConnection < ActiveResource::Connection

@@ -1,3 +1,5 @@
+require_relative 'user_resource'
+
 module OmniApi
   module Resources
     module Users

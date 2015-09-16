@@ -1,4 +1,6 @@
 require_relative '../base_client_model'
+require_relative 'grant_types'
+require_relative 'resource_types'
 
 module OmniApi
   module Resources

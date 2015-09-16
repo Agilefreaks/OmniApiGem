@@ -1,4 +1,4 @@
-require_relative '../users/user_resource'
+require_relative 'user_resource'
 
 module OmniApi
   module Resources
