@@ -1,4 +1,5 @@
 require_relative 'base_client_model'
+require_relative 'user'
 
 module OmniApi
   module Resources
