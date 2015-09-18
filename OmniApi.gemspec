@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'omni_api/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'OmniApi'
+  spec.name          = 'omni_api'
   spec.version       = OmniApi::VERSION
-  spec.authors       = ['Cristi Badila']
-  spec.email         = ['cristi.badila@gmail.com']
+  spec.authors       = ['Cristi Badila', 'Alexandru Calinoiu']
+  spec.email         = %w(badila.cristi@agilefreaks.com calinoiu.alexandru@agilefreaks.com)
   spec.summary       = %q{A gem used to make using OmniApi easier}
   spec.description   = %q{}
-  spec.homepage      = 'https://github.com/cristi-badila/OmniApiGem/tree/master'
+  spec.homepage      = 'https://github.com/Agilefreaks/OmniApiGem'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
