@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omni_api (0.0.1)
+    omni_api (0.0.3)
       activeresource (~> 4.0.0)
 
 GEM

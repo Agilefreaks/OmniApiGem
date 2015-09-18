@@ -8,7 +8,7 @@ module OmniApi
       attr_accessible :phone_number, :content, :type, :state, :send_at
 
       def self.schedule(options)
-        sms_message = OmniApi::SmsMessage.new(options)
+        sms_message = OmniApi::Resources::SmsMessage.new(options)
         sms_message.state = :scheduled
         sms_message.type = :outgoing
 

@@ -12,10 +12,10 @@ module OmniApi
 
         def self.create_for(user_email)
           instance = self.new
-          instance.attributes[:grant_type] = OmniApi::Oauth2::GrantTypes::CLIENT_CREDENTIALS
+          instance.attributes[:grant_type] = OmniApi::Resources::Oauth2::GrantTypes::CLIENT_CREDENTIALS
           instance.attributes[:client_id] = OmniApi.config.client_id
           instance.attributes[:client_secret] = OmniApi.config.client_secret
-          instance.attributes[:resource_type] = OmniApi::Oauth2::ResourceTypes::USER
+          instance.attributes[:resource_type] = OmniApi::Resources::Oauth2::ResourceTypes::USER
           instance.attributes[:resource_id] = user_email
           instance.save
           instance
@@ -23,7 +23,7 @@ module OmniApi
 
         def self.refresh(refresh_token)
           instance = self.new
-          instance.attributes[:grant_type] = OmniApi::Oauth2::GrantTypes::REFRESH_TOKEN
+          instance.attributes[:grant_type] = OmniApi::Resources::Oauth2::GrantTypes::REFRESH_TOKEN
           instance.attributes[:refresh_token] = refresh_token
           instance.save
           instance
