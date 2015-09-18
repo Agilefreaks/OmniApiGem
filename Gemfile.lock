@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    OmniApi (0.0.1)
+    omni_api (0.0.1)
       activeresource (~> 4.0.0)
 
 GEM
@@ -52,8 +52,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  OmniApi!
   bundler (~> 1.7)
+  omni_api!
   rake (~> 10.0)
   rspec
   rspec-its
