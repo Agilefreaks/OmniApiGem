@@ -12,6 +12,19 @@ module OmniApi
         new_headers['Authorization'] = OmniApi.config.user_access_token
         new_headers
       end
+
+      def self.connection(refresh = false)
+        @connection = create_new_connection if refresh || @connection.nil?
+        super
+      end
+
+      protected
+
+      def self.create_new_connection
+        connection = Connection.new(site, format)
+        connection.error_handler = UserAuthorizationErrorHandler.new
+        connection
+      end
     end
   end
 end

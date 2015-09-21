@@ -21,10 +21,12 @@ module OmniApi
           instance
         end
 
-        def self.refresh(refresh_token)
+        def self.refresh_for(refresh_token)
           instance = self.new
           instance.attributes[:grant_type] = OmniApi::Resources::Oauth2::GrantTypes::REFRESH_TOKEN
+          instance.attributes[:client_id] = OmniApi.config.client_id
           instance.attributes[:refresh_token] = refresh_token
+          instance.attributes[:resource_type] = OmniApi::Resources::Oauth2::ResourceTypes::USER
           instance.save
           instance
         end

@@ -2,19 +2,17 @@ require 'active_resource/connection'
 
 module OmniApi
   module Resources
-    class OmniApiConnection < ActiveResource::Connection
+    class Connection < ActiveResource::Connection
       def initialize(site, format = ActiveResource::Formats::JsonFormat)
         super
       end
 
       attr_accessor :error_handler
 
-      private
-
-      def request(method, path, *arguments)
+      def request(*arguments)
         super
-      rescue Error => e
-        error_handler.present? ? error_handler.handle(e) : raise
+      rescue => e
+        error_handler.present? ? error_handler.handle(e, self, arguments) : raise
       end
     end
   end
