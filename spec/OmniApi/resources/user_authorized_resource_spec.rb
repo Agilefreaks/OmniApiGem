@@ -21,5 +21,7 @@ describe OmniApi::Resources::UserAuthorizedResource do
     subject { OmniApi::Resources::UserAuthorizedResource.connection }
 
     it { is_expected.to be_a(OmniApi::Resources::OmniApiConnection) }
+
+    its(:error_handler) { is_expected.to be_a(OmniApi::Resources::UserAuthorizationErrorHandler) }
   end
 end
