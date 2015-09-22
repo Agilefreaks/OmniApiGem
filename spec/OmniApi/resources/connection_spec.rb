@@ -42,6 +42,26 @@ describe OmniApi::Resources::Connection do
           it { is_expected.to be response }
         end
       end
+
+      context 'a user_authorization_error_handler is used' do
+        let(:error_handler) { OmniApi::Resources::UserAuthorizationErrorHandler.new }
+
+        before { instance.error_handler = error_handler }
+
+        context 'refreshing the access token works but the request always fails with 401' do
+          before do
+            token_request_headers = {'Content-Type' => 'application/json', 'Authorization' => 'bearer random'}
+            ActiveResource::HttpMock.respond_to do |mock|
+              mock.get path, {}, nil, 401
+              mock.post '/api/v1/oauth2/token.json', token_request_headers, nil, 200
+            end
+          end
+
+          it 'raises the first exception encountered after refreshing the token without causing a stack overflow' do
+            expect { subject }.to raise_error(ActiveResource::UnauthorizedAccess)
+          end
+        end
+      end
     end
 
     context 'the underlying connection resolves the request' do
