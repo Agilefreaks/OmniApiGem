@@ -6,7 +6,7 @@ describe OmniApi::Resources::UserAuthorizationErrorHandler do
 
   describe '#handle' do
     let(:error) { Exception.new('some message') }
-    let(:connection) { OmniApi::Resources::OmniApiConnection.new('http://123.com') }
+    let(:connection) { OmniApi::Resources::Connection.new('http://123.com') }
     let(:arguments) { [:get, 'http://123.com', {}] }
 
     subject { instance.handle(error, connection, arguments) }

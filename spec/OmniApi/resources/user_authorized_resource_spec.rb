@@ -20,7 +20,7 @@ describe OmniApi::Resources::UserAuthorizedResource do
   describe '.connection' do
     subject { OmniApi::Resources::UserAuthorizedResource.connection }
 
-    it { is_expected.to be_a(OmniApi::Resources::OmniApiConnection) }
+    it { is_expected.to be_a(OmniApi::Resources::Connection) }
 
     its(:error_handler) { is_expected.to be_a(OmniApi::Resources::UserAuthorizationErrorHandler) }
   end

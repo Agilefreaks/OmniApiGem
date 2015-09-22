@@ -5,7 +5,7 @@ describe OmniApi::Resources::User::UserResource do
   describe '.connection' do
     subject { OmniApi::Resources::User::UserResource.connection }
 
-    it { is_expected.to be_a(OmniApi::Resources::OmniApiConnection) }
+    it { is_expected.to be_a(OmniApi::Resources::Connection) }
   end
 
   describe '.site' do

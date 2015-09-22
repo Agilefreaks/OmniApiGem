@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe OmniApi::Resources::OmniApiConnection do
-  let(:instance) { OmniApi::Resources::OmniApiConnection.new('http://123.com') }
+describe OmniApi::Resources::Connection do
+  let(:instance) { OmniApi::Resources::Connection.new('http://123.com') }
 
   subject { instance }
 

@@ -21,7 +21,7 @@ module OmniApi
       protected
 
       def self.create_new_connection
-        connection = OmniApiConnection.new(site, format)
+        connection = Connection.new(site, format)
         connection.error_handler = UserAuthorizationErrorHandler.new
         connection
       end
