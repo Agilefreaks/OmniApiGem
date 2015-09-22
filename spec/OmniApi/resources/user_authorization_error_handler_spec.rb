@@ -22,7 +22,7 @@ describe OmniApi::Resources::UserAuthorizationErrorHandler do
 
       it 'tries to refresh the current user access token' do
         OmniApi.config.user_refresh_token = 'refreshToken'
-        expect(OmniApi::Resources::Oauth2::Token).to receive(:refresh).with('refreshToken')
+        expect(OmniApi::Resources::Oauth2::Token).to receive(:refresh_for).with('refreshToken')
 
         subject rescue nil
       end
@@ -32,7 +32,7 @@ describe OmniApi::Resources::UserAuthorizationErrorHandler do
 
         before do
           allow(updated_token).to receive(:persisted?).and_return(true)
-          allow(OmniApi::Resources::Oauth2::Token).to receive(:refresh).and_return(updated_token)
+          allow(OmniApi::Resources::Oauth2::Token).to receive(:refresh_for).and_return(updated_token)
         end
 
         it 'tries to perform the original request again' do
@@ -59,7 +59,7 @@ describe OmniApi::Resources::UserAuthorizationErrorHandler do
       end
 
       describe 'refreshing the token does not work' do
-        before { allow(OmniApi::Resources::Oauth2::Token).to receive(:refresh).and_raise(ActiveResource::UnauthorizedAccess.new('m')) }
+        before { allow(OmniApi::Resources::Oauth2::Token).to receive(:refresh_for).and_raise(ActiveResource::UnauthorizedAccess.new('m')) }
 
         it 'throws the original error' do
           expect { subject }.to raise_error(error)
