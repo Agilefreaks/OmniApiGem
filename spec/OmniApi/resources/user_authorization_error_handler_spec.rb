@@ -55,14 +55,12 @@ describe OmniApi::Resources::UserAuthorizationErrorHandler do
           it 'rethrows the error' do
             expect { subject }.to raise_error(ActiveResource::BadRequest)
           end
-        end
-      end
 
-      describe 'refreshing the token does not work' do
-        before { allow(OmniApi::Resources::Oauth2::Token).to receive(:refresh_for).and_raise(ActiveResource::UnauthorizedAccess.new('m')) }
+          context 'the request fails again with ActiveResource::UnauthorizedAccess' do
+            before { allow(connection).to receive(:request).and_raise(ActiveResource::BadRequest.new('test')) }
 
-        it 'throws the original error' do
-          expect { subject }.to raise_error(error)
+
+          end
         end
       end
     end
