@@ -22,10 +22,13 @@ module OmniApi
   # rubocop:disable Style/ClassVars
   def self.user_access_token=(token)
     @@user_access_token = "bearer #{token}"
-  end
+    end
 
   mattr_accessor :base_url
   self.base_url = ''
+
+  mattr_accessor :user_refresh_token
+  self.user_refresh_token = ''
 
   def self.config
     self

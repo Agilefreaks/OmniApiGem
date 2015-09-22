@@ -7,12 +7,12 @@ module OmniApi
         super
       end
 
-      attr_writer :error_handler
+      attr_accessor :error_handler
 
       def request(*arguments)
         super
       rescue => e
-        @error_handler.present? ? @error_handler.handle(e, self, arguments) : raise
+        error_handler.present? ? error_handler.handle(e, self, arguments) : raise
       end
     end
   end
