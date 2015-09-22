@@ -11,24 +11,24 @@ module OmniApi
   mattr_accessor :client_secret
   self.client_secret = ''
 
+  mattr_accessor :user_access_token
+  self.user_access_token = ''
+
+  mattr_accessor :user_refresh_token
+  self.user_refresh_token = ''
+
+  mattr_accessor :base_url
+  self.base_url = ''
+
   # rubocop:disable Style/ClassVars
   def self.client_access_token=(token)
     @@client_access_token = "bearer #{token}"
   end
 
-  mattr_accessor :user_access_token
-  self.user_access_token = ''
-
   # rubocop:disable Style/ClassVars
   def self.user_access_token=(token)
     @@user_access_token = "bearer #{token}"
     end
-
-  mattr_accessor :base_url
-  self.base_url = ''
-
-  mattr_accessor :user_refresh_token
-  self.user_refresh_token = ''
 
   def self.config
     self
